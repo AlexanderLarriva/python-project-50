@@ -1,31 +1,22 @@
 #!/usr/bin/python3
-import argparse
-# import diff
+import gendiff
 
-# print(diff.a)
-
-# file_path1 = '/home/larriva/python-project-50/file1.json'
-# file_path2 = '/home/larriva/python-project-50/file2.json'
-# compare_diff = diff.generate_diff(file_path1, file_path2)
-# print(diff)
 
 def main():
-    parser = argparse.ArgumentParser(prog = 'gendiff',
-                        description = 'Compares two configuration files and shows a difference.',
-                        epilog = '')
-
-    parser.add_argument("first_file")
-    parser.add_argument("second_file")
-    parser.add_argument('-f', '--format',
-                            default='stylish',
-                            choices=['stylish', 'plain', 'json'],
-                            help='set format of output')
-    return parser.parse_args()
-    # print(args)
+    # print(gendiff.diff_files.a) Проверка импорта 
+    # gendiff.generate_diff()
+    # print(gendiff.a)
+    args = gendiff.parse() #вызов параметров файла
+    first_file = args.first_file
+    # print('Path1=', first_file)
+    second_file = args.second_file
+    # print('Path2=', second_file)
+    #format = args.format формат 
+    # print('format=', format)
+    compare_diff = gendiff.generate_diff(first_file, second_file)
+    print(compare_diff)
+    # print(gendiff.generate_diff(first_file, second_file))
 
 
 if __name__ == '__main__':
     main()
-
-
-
