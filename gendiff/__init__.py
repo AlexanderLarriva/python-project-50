@@ -1,6 +1,2 @@
-# from .cli import parse
-# from .cli import a # это я импортирую индивидуально
-# print('dfdfdf') # проверка вызова инит
-# import gendiff.cli так не проходит
-from .cli import *
-from .diff_files import *
+from .cli import parse  # noqa: F401
+from .diff_files import generate_diff  # noqa: F401

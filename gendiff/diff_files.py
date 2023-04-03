@@ -5,17 +5,14 @@ def read_file(filepath):
     with open(filepath) as file:
         return json.load(file)
 
+
 def generate_diff(filepath1, filepath2):
     dict1 = read_file(filepath1)
     dict2 = read_file(filepath2)
     diff_dict = {k: (dict1.get(k), dict2.get(k))
-                for k in set(dict1) | set(dict2)}
-                # if dict1.get(k) != dict2.get(k)}
-    
-    print(diff_dict)
-    
+                 for k in set(dict1) | set(dict2)}
     result = []
-    for key, values in diff_dict.items():
+    for key, values in sorted(diff_dict.items()):
         if key not in dict1:
             result.append(f"  + {key}: {values[1]}")
         elif key not in dict2:
@@ -25,4 +22,5 @@ def generate_diff(filepath1, filepath2):
         else:
             result.append(f"  - {key}: {values[0]}")
             result.append(f"  + {key}: {values[1]}")
-    return "{\n" + "\n".join(result) + "\n}" # продумать сортировку по алфавиту
+    return f"gendiff {filepath1} {filepath2}\n" + "{\n" + \
+        "\n".join(result) + "\n}"
