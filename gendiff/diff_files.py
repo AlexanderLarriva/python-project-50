@@ -1,7 +1,6 @@
 import json
 
 
-
 def read_file(filepath):
     with open(filepath) as file:
         return json.load(file)
