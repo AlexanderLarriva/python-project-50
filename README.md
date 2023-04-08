@@ -1,12 +1,6 @@
 # **GENDIFF**
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/AlexanderLarriva/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/AlexanderLarriva/python-project-50/actions)
 
-### CodeClimate status:
-<a href="https://codeclimate.com/github/AlexanderLarriva/python-project-50/maintainability"><img src="https://api.codeclimate.com/v1/badges/674d4361fdd8ba1ef0f7/maintainability" /></a>
-
-<a href="https://codeclimate.com/github/AlexanderLarriva/python-project-50/test_coverage"><img src="https://api.codeclimate.com/v1/badges/674d4361fdd8ba1ef0f7/test_coverage" /></a>
-
+[![Actions Status](https://github.com/AlexanderLarriva/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/AlexanderLarriva/python-project-50/actions) <a href="https://codeclimate.com/github/AlexanderLarriva/python-project-50/maintainability"><img src="https://api.codeclimate.com/v1/badges/674d4361fdd8ba1ef0f7/maintainability" /></a> <a href="https://codeclimate.com/github/AlexanderLarriva/python-project-50/test_coverage"><img src="https://api.codeclimate.com/v1/badges/674d4361fdd8ba1ef0f7/test_coverage" /></a> [![Python CI](https://github.com/AlexanderLarriva/python-project-50/actions/workflows/check_work.yml/badge.svg)](https://github.com/AlexanderLarriva/python-project-50/actions/workflows/check_work.yml)
 
 ## Description.
 
