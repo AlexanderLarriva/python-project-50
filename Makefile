@@ -18,3 +18,6 @@ package-install:
 
 make lint:
 	poetry run flake8 gendiff
+
+make test:
+	poetry run pytest
