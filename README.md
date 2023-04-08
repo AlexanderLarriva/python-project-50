@@ -5,16 +5,18 @@
 
 ## Description.
 
-<font size = ”1”> A set of mini-games launched from the console.
-The set contains the following games:
-- Brain-even
-  
-  The essence of the game is as follows: a random number is shown to the user. And he needs to answer "yes" if the number is even, or "no" if it is odd.
-  #### *Demonstration of the Brain-even game:*
-  [![asciicast](https://asciinema.org/a/547043.svg)](https://asciinema.org/a/547043)
+<font size = ”1”> Difference Calculator is a program that determines the difference between two data structures. This is a popular task, for which there are many online services http://www.jsondiff.com /. A similar mechanism, for example, is used when outputting tests or when automatically tracking changes in configuration files.
+
+Utility Features:
+
+Support for different input formats: yaml, json
+Generating a report in the form of plain text, stylish and json
+
+  #### *Demonstration of install package. Compare two json-files:*
+  [![asciicast](https://asciinema.org/a/575519.svg)](https://asciinema.org/a/575519)
 
   
-Games are run on the command line by calling commands: **brain-even, brain-calc, brain-gcd, brain-prime, brain-progression**.
+<!--Games are run on the command line by calling commands: **brain-even, brain-calc, brain-gcd, brain-prime, brain-progression**.
 </font>
 
 ## Installation procedure.
@@ -41,4 +43,4 @@ Removed by the command:
 `python3 -m pip uninstall hexlet-code`
 
 #### *Demonstration of the installation and removal of the game:*
-[![asciicast](https://asciinema.org/a/548973.svg)](https://asciinema.org/a/548973)
+[![asciicast](https://asciinema.org/a/548973.svg)](https://asciinema.org/a/548973)-->
