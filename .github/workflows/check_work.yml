@@ -22,10 +22,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
+          pip install coverage
           make install
-       # install coverage
-      - name: Install coverage
-        run: pip install coverage
+      #  # install coverage
+      # - name: Install coverage
+      #   run: pip install coverage
       - name: Run linter and pytest
         run: |
           make check
