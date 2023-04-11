@@ -16,4 +16,11 @@ dist/
 *.gz
 
 #ignore .vscode
-.vscode
+.vscode/
+
+#ignore fixtures
+.tests/fixtures/
+.pytest_cache
+
+#my_test
+MMM.py
