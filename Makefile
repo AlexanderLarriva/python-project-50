@@ -16,15 +16,8 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl
 
-# make lint:
-# 	poetry run flake8 gendiff
-
-# make test:
-# 	poetry run pytest
-
 check:
 	poetry run flake8 gendiff
-# poetry run pytest
 
 test-coverage:
 	poetry run pytest --cov=gendiff tests/ --cov-report xml
