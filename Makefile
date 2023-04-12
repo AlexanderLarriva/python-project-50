@@ -24,10 +24,10 @@ package-install:
 
 check:
 	poetry run flake8 gendiff
-	poetry run pytest
+# poetry run pytest
 
 test-coverage:
-	poetry run
-	coverage run --source=. -m pytest
-	coverage report
-	coverage xml
+	poetry run pytest --cov=gendiff tests/ --cov-report xml
+# coverage run --source=. -m pytest
+# coverage report
+# coverage xml
