@@ -27,6 +27,7 @@ check:
 	poetry run pytest
 
 test-coverage:
-	coverage run --source=. poetry run pytest
+	poetry run
+	coverage run --source=. -m pytest
 	coverage report
 	coverage xml
