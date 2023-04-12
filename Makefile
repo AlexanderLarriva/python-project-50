@@ -18,6 +18,7 @@ package-install:
 
 check:
 	poetry run flake8 gendiff
+	poetry run pytest
 
 test-coverage:
 	poetry run pytest --cov=gendiff tests/ --cov-report xml
