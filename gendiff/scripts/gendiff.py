@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 import gendiff
+# так тоже можно
+# from gendiff import parse
+# from gendiff import generate_diff
 
 
 def main():
@@ -9,7 +12,7 @@ def main():
     args = gendiff.parse()
     first_file = args.first_file
     second_file = args.second_file
-    # format = args.format формат
+    format = args.format
     compare_diff = gendiff.generate_diff(first_file, second_file)
     print(compare_diff)
 
