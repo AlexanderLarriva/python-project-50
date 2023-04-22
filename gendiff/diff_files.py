@@ -1,4 +1,5 @@
 import json
+import os
 
 
 def read_file(filepath):
@@ -22,5 +23,6 @@ def generate_diff(filepath1, filepath2):
         else:
             result.append(f"  - {key}: {values[0]}")
             result.append(f"  + {key}: {values[1]}")
-    return f"gendiff {filepath1} {filepath2}\n" + "{\n" + \
-        "\n".join(result) + "\n}"
+    return f"gendiff {os.path.basename(filepath1)} \
+{os.path.basename(filepath2)}\n" \
+        "{\n" + "\n".join(result) + "\n}"

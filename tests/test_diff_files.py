@@ -7,7 +7,7 @@ def test_generate_diff():
     
     filepath2 = os.path.join(os.path.dirname(__file__), 'fixtures', 'file2.json')
     
-    expected_output = f"""gendiff {filepath1} {filepath2}
+    expected_output = f"""gendiff file1.json file2.json
 {{
   - follow: False
     host: hexlet.io

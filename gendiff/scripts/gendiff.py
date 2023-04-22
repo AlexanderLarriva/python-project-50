@@ -13,8 +13,9 @@ def main():
     first_file = args.first_file
     second_file = args.second_file
     # format = args.format
-    compare_diff = gendiff.generate_diff(first_file, second_file)
-    print(compare_diff)
+    # print(format)
+    diff = gendiff.generate_diff(first_file, second_file)
+    print(diff)
 
 
 if __name__ == '__main__':
