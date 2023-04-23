@@ -1,5 +1,5 @@
 import os
-from gendiff.diff_files import generate_diff
+from gendiff.diff_files import build_diff
 
 
 def test_generate_diff():
@@ -17,7 +17,7 @@ def test_generate_diff():
   + verbose: True
 }}"""
     
-    assert generate_diff(filepath1, filepath2) == expected_output
+    assert build_diff(filepath1, filepath2) == expected_output
 
 # import pytest
 

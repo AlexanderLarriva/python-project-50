@@ -7,7 +7,7 @@ def read_file(filepath):
         return json.load(file)
 
 
-def generate_diff(filepath1, filepath2):
+def build_diff(filepath1, filepath2):
     dict1 = read_file(filepath1)
     dict2 = read_file(filepath2)
     diff_dict = {k: (dict1.get(k), dict2.get(k))
