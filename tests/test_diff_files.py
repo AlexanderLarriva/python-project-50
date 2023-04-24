@@ -1,12 +1,14 @@
 import os
-from gendiff.diff_files import build_diff
+from gendiff.diff_files import make_diff
+from gendiff.check_files import check_file
 
 
 def test_generate_diff():
     filepath1 = os.path.join(os.path.dirname(__file__), 'fixtures', 'file1.json')
     
     filepath2 = os.path.join(os.path.dirname(__file__), 'fixtures', 'file2.json')
-    
+    file1 = check_file(filepath1)
+    file2 = check_file(filepath2)
     expected_output = f"""gendiff file1.json file2.json
 {{
   - follow: False
@@ -17,7 +19,7 @@ def test_generate_diff():
   + verbose: True
 }}"""
     
-    assert build_diff(filepath1, filepath2) == expected_output
+    assert make_diff(file1, file2) == expected_output
 
 # import pytest
 
