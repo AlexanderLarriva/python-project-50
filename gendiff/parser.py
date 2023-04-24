@@ -1,8 +1,14 @@
-# import json
-# import yaml
+from os.path import splitext
+import json
+import yaml
 
-# with open('input.yml') as f:
-#     data = yaml.safe_load(f)
 
-# with open('output.json', 'w') as f:
-#     json.dump(data, f)
+def parse_file(filepath):
+    if splitext(filepath)[1][1:] in ('yaml', 'yml'):
+        with open(filepath, 'r') as file:
+            return yaml.safe_load(file)
+    elif splitext(filepath)[1][1:] == 'json':
+        with open(filepath, 'r') as file:
+            return json.load(file)
+    else:
+        raise ValueError("Unsupported file format")

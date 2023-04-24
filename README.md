@@ -11,10 +11,19 @@ Utility Features:
 Support for different input formats: yaml, json
 Generating a report in the form of plain text, stylish and json
 
+  #### *Install package:*
+
+  `python3 -m pip install --user dist/*.whl`
+  
+  #### *Removed by the command*:
+
+  `python3 -m pip uninstall hexlet-code`
+
   #### *Demonstration of install package. Compare two json-files:*
   [![asciicast](https://asciinema.org/a/575519.svg)](https://asciinema.org/a/575519)
 
-  
+  #### *Demonstration of comparing two json-files or yaml-files or a combination of them:*
+  [![asciicast](https://asciinema.org/a/580204.svg)](https://asciinema.org/a/580204)
 <!--Games are run on the command line by calling commands: **brain-even, brain-calc, brain-gcd, brain-prime, brain-progression**.
 </font>
 
