@@ -12,4 +12,5 @@ def make_diff(dict1, dict2):
         else:
             result.append(f"  - {key}: {values[0]}")
             result.append(f"  + {key}: {values[1]}")
+    # возврат дифа
     return ("{\n" + "\n".join(result) + "\n}")

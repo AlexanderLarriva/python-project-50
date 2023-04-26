@@ -20,23 +20,3 @@ def test_generate_diff():
 # @pytest.fixture
 # def filepath1():
 #     return os.path.join(os.path.dirname(__file__), 'fixtures', 'file1.json')
-
-# @pytest.fixture
-# def filepath2():
-#     return os.path.join(os.path.dirname(__file__), 'fixtures', 'file2.json')
-
-# @pytest.fixture
-# def expected_output():
-#     return f"""gendiff {filepath1} {filepath2}
-# {{
-#   - follow: False
-#     host: hexlet.io
-#   - proxy: 123.234.53.22
-#   - timeout: 50
-#   + timeout: 20
-#   + verbose: True
-# }}"""
-
-# def test_generate_diff(filepath1, filepath2, expected_output):
-#     assert generate_diff(filepath1, filepath2) == expected_output
-
