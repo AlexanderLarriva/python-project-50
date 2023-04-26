@@ -1,4 +1,4 @@
-def make_diff(dict1, dict2, name_file1, name_file2):
+def make_diff(dict1, dict2):
     diff_dict = {k: (dict1.get(k), dict2.get(k))
                  for k in set(dict1) | set(dict2)}
     result = []
@@ -12,5 +12,4 @@ def make_diff(dict1, dict2, name_file1, name_file2):
         else:
             result.append(f"  - {key}: {values[0]}")
             result.append(f"  + {key}: {values[1]}")
-    return f"gendiff {name_file1} {name_file2}\n" \
-        "{\n" + "\n".join(result) + "\n}"
+    return ("{\n" + "\n".join(result) + "\n}")
