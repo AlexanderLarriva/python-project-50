@@ -18,10 +18,6 @@ dist/
 #ignore .vscode
 .vscode/
 
-#ignore fixtures
-.tests/fixtures/
-.pytest_cache
-
 #my_test
 MMM.py
 var_generate_diff.py
