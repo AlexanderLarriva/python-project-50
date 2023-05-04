@@ -20,7 +20,8 @@ dist/
 
 #my_test
 MMM.py
-var_generate_diff.py
+stringify.py
+htmlcov
 
 # *.egg-info
 # __pycache__

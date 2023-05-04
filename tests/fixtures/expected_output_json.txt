@@ -1,0 +1,1 @@
+[{"key": "follow", "operation": "removed", "old": false, "new": null}, {"key": "host", "operation": "same", "value": "hexlet.io"}, {"key": "proxy", "operation": "removed", "old": "123.234.53.22", "new": null}, {"key": "timeout", "operation": "changed", "old": 50, "new": 20}, {"key": "verbose", "operation": "add", "old": null, "new": true}]

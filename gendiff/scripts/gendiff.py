@@ -12,9 +12,9 @@ def main():
     args = gendiff.parse()
     first_file = args.first_file
     second_file = args.second_file
-    # format = args.format
+    format = args.format
     # print(format)
-    diff = gendiff.generate_diff(first_file, second_file)
+    diff = gendiff.generate_diff(first_file, second_file, format)
     print(diff)
 
 
