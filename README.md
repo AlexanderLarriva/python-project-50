@@ -2,7 +2,7 @@
 
 [![Actions Status](https://github.com/AlexanderLarriva/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/AlexanderLarriva/python-project-50/actions) <a href="https://codeclimate.com/github/AlexanderLarriva/python-project-50/maintainability"><img src="https://api.codeclimate.com/v1/badges/674d4361fdd8ba1ef0f7/maintainability" /></a> <a href="https://codeclimate.com/github/AlexanderLarriva/python-project-50/test_coverage"><img src="https://api.codeclimate.com/v1/badges/674d4361fdd8ba1ef0f7/test_coverage" /></a> [![Python CI](https://github.com/AlexanderLarriva/python-project-50/actions/workflows/check_work.yml/badge.svg)](https://github.com/AlexanderLarriva/python-project-50/actions/workflows/check_work.yml)
 
-## Description.
+## Description
 
 <font size = ”1”> Difference Calculator is a program that determines the difference between two data structures. This is a popular task, for which there are many online services http://www.jsondiff.com /. A similar mechanism, for example, is used when outputting tests or when automatically tracking changes in configuration files.
 
@@ -11,44 +11,50 @@ Utility Features:
 Support for different input formats: yaml, json
 Generating a report in the form of plain text, stylish and json
 
-  #### *Install package:*
+### *Demonstration of install package. Compare two json-files:*
 
-  `python3 -m pip install --user dist/*.whl`
-  
-  #### *Removed by the command*:
+  [![asciicast](https://asciinema.org/a/583215.svg)](https://asciinema.org/a/583215)
 
-  `python3 -m pip uninstall hexlet-code`
+### *Demonstration of comparing two json-files or yaml-files or a combination of them:*
 
-  #### *Demonstration of install package. Compare two json-files:*
-  [![asciicast](https://asciinema.org/a/575519.svg)](https://asciinema.org/a/575519)
+  [![asciicast](https://asciinema.org/a/583220.svg)](https://asciinema.org/a/583220)
 
-  #### *Demonstration of comparing two json-files or yaml-files or a combination of them:*
-  [![asciicast](https://asciinema.org/a/580204.svg)](https://asciinema.org/a/580204)
-<!--Games are run on the command line by calling commands: **brain-even, brain-calc, brain-gcd, brain-prime, brain-progression**.
+### *Demonstration of finding differences for files with nested structures - Stylish format:*
+
+  [![asciicast](https://asciinema.org/a/583224.svg)](https://asciinema.org/a/583224)
+
+### *Demonstration of finding differences for files in Plain format*
+
+  [![asciicast](https://asciinema.org/a/583225.svg)](https://asciinema.org/a/583225)
+
+### *Demonstration of output in structured format - Json*
+
+  [![asciicast](https://asciinema.org/a/583226.svg)](https://asciinema.org/a/583226)
+
+#### App are run on the command line by calling commands: `gendiff`
+
+For example:
+
+`gendiff -f plain file1.json file2.yml`
 </font>
 
-## Installation procedure.
-
-### Setup:
+### *Installation procedure*
 
 Cloning a remote repository:
 
-`git сlone https://github.com/AlexanderLarriva/python-project-49.git`
+`git сlone https://github.com/AlexanderLarriva/python-project-50.git`
+
+### *Install package:*
+
+  `python3 -m pip install --user dist/*.whl`
+  
+### *Removed by the command:*
+
+  `python3 -m pip uninstall hexlet-code`
+
 
 Using Makefile:
 ```bash
 $ make install
 $ make build
 $ make package-install
-```
-
-The game is installed by the command:
-
-`python3 -m pip install --user git+https://github.com/AlexanderLarriva/python-project-49.git`
-
-Removed by the command:
-
-`python3 -m pip uninstall hexlet-code`
-
-#### *Demonstration of the installation and removal of the game:*
-[![asciicast](https://asciinema.org/a/548973.svg)](https://asciinema.org/a/548973)-->
