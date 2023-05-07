@@ -1,7 +1,3 @@
-# from typing import Any
-
-
-# def to_str(value: Any):
 def to_str(value):
     if isinstance(value, dict):
         return "[complex value]"
@@ -38,5 +34,5 @@ def build_plain_iter(diff: dict, path="") -> str:
     return '\n'.join(result)
 
 
-def render_plain(diff: dict) -> str:
+def to_plain(diff: dict) -> str:
     return build_plain_iter(diff)

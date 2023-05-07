@@ -1,5 +1,3 @@
-# from typing import Any
-
 DEFAULT_INDENT = 4  # отступ по умолчанию
 
 
@@ -32,32 +30,30 @@ def line_forming(dictionary: dict, key, level: int, sign: str) -> str:
 
 
 def build_stylish_iter(diff: dict, level=0) -> str:
+    OPERATIONS = {
+        'same': lambda x, y: line_forming(x, 'value', y, sign='    '),
+        'add': lambda x, y: line_forming(x, 'new', y, sign='  + '),
+        'removed': lambda x, y: line_forming(x, 'old', y, sign='  - '),
+        'changed': lambda x, y: '\n'.join([
+            line_forming(x, 'old', y, sign='  - '),
+            line_forming(x, 'new', y, sign='  + ')
+        ]),
+        'nested': lambda x, y: (
+            f'{" " * y}    {x["key"]}: '
+            f'{build_stylish_iter(x["value"], y + DEFAULT_INDENT)}'
+        )
+    }
+
     result = ['{']
     for dictionary in diff:
-        key = dictionary['key']
-        value = dictionary.get('value')
         operation = dictionary['operation']
 
-        if operation == 'same':
-            result.append(line_forming(dictionary, 'value', level, sign='    '))
-
-        elif operation == 'add':
-            result.append(line_forming(dictionary, 'new', level, sign='  + '))
-
-        elif operation == 'removed' or operation == 'changed':
-            result.append(line_forming(dictionary, 'old', level, sign='  - '))
-
-            if operation == 'changed':
-                result.append(line_forming(dictionary, 'new', level,
-                                        sign='  + '))
-
-        elif operation == 'nested':
-            new_value = build_stylish_iter(value, level + DEFAULT_INDENT)
-            result.append(f'{" " * level}    {key}: {new_value}')
+        if operation in OPERATIONS:
+            result.append(OPERATIONS[operation](dictionary, level))
 
     result.append(f'{" " * level}}}')
     return '\n'.join(result)
 
 
-def render_stylish(diff: dict) -> str:
+def to_stylish(diff: dict) -> str:
     return build_stylish_iter(diff)

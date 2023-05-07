@@ -17,10 +17,10 @@ dist/
 
 #ignore .vscode
 .vscode/
+wget-log
 
-#my_test
+#ignore coverage report
 MMM.py
-stringify.py
 htmlcov
 
 # *.egg-info
