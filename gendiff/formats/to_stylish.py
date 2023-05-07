@@ -1,16 +1,11 @@
-DEFAULT_INDENT = 4  # отступ по умолчанию
+DEFAULT_INDENT = 4
 
 
 def to_str(value, level: int) -> str:
-    # Если значение является словарем
     if isinstance(value, dict):
-        # Вводим список с начальным значением - {
         lines = ['{']
-        # Циклом проходим по ключам и значениям словаря - диффа
         for key, nested_value in value.items():
-            # Если вложенное значение является словарем
             if isinstance(nested_value, dict):
-                # Рекурсивно вызываем функцию to_str
                 new_value = to_str(nested_value, level + DEFAULT_INDENT)
                 lines.append(f"{' ' * level}    {key}: {new_value}")
             else:

@@ -22,6 +22,3 @@ check:
 
 test-coverage:
 	poetry run pytest --cov=gendiff tests/ --cov-report xml
-# coverage run --source=. -m pytest
-# coverage report
-# coverage xml

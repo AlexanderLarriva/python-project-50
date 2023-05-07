@@ -9,17 +9,10 @@ def test_generate_diff():
     filepath2 = os.path.join(os.path.dirname(__file__), 'fixtures', 'file2.json')
     data1, format1 = prepare_data(filepath1)
     data2, format2 = prepare_data(filepath2)
-    # Получаем словари из парсера
-    dict1 = parse_file(data1, format1)  # dict
+    dict1 = parse_file(data1, format1)
     dict2 = parse_file(data2, format2)
     
     with open(os.path.join(os.path.dirname(__file__), 'fixtures', 'expected_output.txt'), 'r') as diff:
         expected_output = diff.read().strip()
       
     assert str(make_diff(dict1, dict2)) == expected_output
-
-# import pytest
-
-# @pytest.fixture
-# def filepath1():
-#     return os.path.join(os.path.dirname(__file__), 'fixtures', 'file1.json')

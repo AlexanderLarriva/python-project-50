@@ -13,14 +13,15 @@ def build_plain_iter(diff: dict, path="") -> str:
     result = []
 
     OPERATIONS = {
-        'add': lambda x: (f"Property '{path}{x['key']}' "
-                          f"was added with value: "
-                          f"{to_str(x['new'])}"),
-        'removed': lambda x: (f"Property '{path}{x['key']}' was removed"),
-        'nested': lambda x: build_plain_iter(x['value'], f"{path}{x['key']}."),
-        'changed': lambda x: (f"Property '{path}{x['key']}' was updated. "
-                              f"From {to_str(x['old'])} to "
-                              f"{to_str(x['new'])}")
+        'add': lambda dict: (f"Property '{path}{dict['key']}' "
+                             f"was added with value: "
+                             f"{to_str(dict['new'])}"),
+        'removed': lambda dict: (f"Property '{path}{dict['key']}' was removed"),
+        'nested': lambda dict: build_plain_iter(
+            dict['value'], f"{path}{dict['key']}."),
+        'changed': lambda dict: (f"Property '{path}{dict['key']}' was updated. "
+                                 f"From {to_str(dict['old'])} to "
+                                 f"{to_str(dict['new'])}")
     }
 
     for dictionary in diff:
