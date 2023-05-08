@@ -20,8 +20,6 @@ dist/
 wget-log
 
 #ignore coverage report
-MMM.py
-test_cli.py
 htmlcov
 
 # *.egg-info
