@@ -7,7 +7,8 @@ def to_str(value):
         return "null"
     if isinstance(value, int):
         return value
-    return f"'{value}'"
+    else:
+        return f"'{value}'"
 
 
 def build_plain_iter(diff: dict, path="") -> str:
