@@ -16,7 +16,7 @@ def test_date_prepare():
 
     assert prepare_data(filepath1) == (data1, 'json')
     assert prepare_data(filepath2) == (data2, 'yml')
-    
+
     with pytest.raises(ValueError) as e_info:
         prepare_data(filepath3)
     assert str(e_info.value) == "Unrecognized extension: txt"
