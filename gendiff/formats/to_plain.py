@@ -12,25 +12,23 @@ def to_str(value):
 
 def build_plain_iter(diff: dict, path="") -> str:
     result = []
+
+    OPERATIONS = {
+        'add': lambda dict: (f"Property '{path}{dict['key']}' "
+                             f"was added with value: "
+                             f"{to_str(dict['new'])}"),
+        'removed': lambda dict: (f"Property '{path}{dict['key']}' was removed"),
+        'nested': lambda dict: build_plain_iter(
+            dict['value'], f"{path}{dict['key']}."),
+        'changed': lambda dict: (f"Property '{path}{dict['key']}' was updated. "
+                                 f"From {to_str(dict['old'])} to "
+                                 f"{to_str(dict['new'])}")
+    }
+
     for dictionary in diff:
-        property = f"{path}{dictionary['key']}"
-
-        if dictionary['operation'] == 'add':
-            result.append(f"Property '{property}' "
-                          f"was added with value: "
-                          f"{to_str(dictionary['new'])}")
-
-        if dictionary['operation'] == 'removed':
-            result.append(f"Property '{property}' was removed")
-
-        if dictionary['operation'] == 'nested':
-            new_value = build_plain_iter(dictionary['value'], f"{property}.")
-            result.append(f"{new_value}")
-
-        if dictionary['operation'] == 'changed':
-            result.append(f"Property '{property}' was updated. "
-                          f"From {to_str(dictionary['old'])} to "
-                          f"{to_str(dictionary['new'])}")
+        operation = dictionary['operation']
+        if operation in OPERATIONS:
+            result.append(OPERATIONS[operation](dictionary))
     return '\n'.join(result)
 
 
