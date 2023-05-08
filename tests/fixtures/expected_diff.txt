@@ -1,0 +1,29 @@
+[
+    {'key': 'common', 'operation': 'nested', 'value': 
+    [
+     {'key': 'follow', 'operation': 'add', 'old': None, 'new': False}, 
+     {'key': 'setting1', 'operation': 'same', 'value': 'Value 1'}, 
+     {'key': 'setting2', 'operation': 'removed', 'old': 200, 'new': None}, 
+     {'key': 'setting3', 'operation': 'changed', 'old': True, 'new': None}, 
+     {'key': 'setting4', 'operation': 'add', 'old': None, 'new': 'blah blah'}, 
+     {'key': 'setting5', 'operation': 'add', 'old': None, 'new': {'key5': 'value5'}}, 
+     {'key': 'setting6', 'operation': 'nested', 'value': 
+        [
+            {'key': 'doge', 'operation': 'nested', 'value': 
+            [
+                {'key': 'wow', 'operation': 'changed', 'old': '', 'new': 'so much'}
+            ]}, 
+            {'key': 'key', 'operation': 'same', 'value': 'value'}, 
+            {'key': 'ops', 'operation': 'add', 'old': None, 'new': 'vops'}
+        ]}
+    ]}, 
+    {'key': 'group1', 'operation': 'nested', 'value': 
+        [
+            {'key': 'baz', 'operation': 'changed', 'old': 'bas', 'new': 'bars'}, 
+            {'key': 'foo', 'operation': 'same', 'value': 'bar'}, 
+            {'key': 'nest', 'operation': 'changed', 'old': {'key': 'value'}, 'new': 'str'}
+        ]}, 
+            {'key': 'group2', 'operation': 'removed', 'old': {'abc': 12345, 'deep': {'id': 45}}, 'new': None}, 
+            {'key': 'group3', 'operation': 'add', 'old': None, 'new': 
+                {'deep': {'id': {'number': 45}}, 'fee': 100500}}
+]
