@@ -2,11 +2,12 @@ import pytest
 from gendiff.date_prepare import prepare_data
 from tests import get_fixture_path
 
+
 def test_date_prepare():
     filepath1 = get_fixture_path('file1.json')
     filepath2 = get_fixture_path('file1.yml')
-    filepath3 = get_fixture_path('expected_output_plain.txt') # просто беру путь
-    
+    filepath3 = get_fixture_path('expected_output_plain.txt')
+
     with open(filepath1) as f:
         data1 = f.read()
 
