@@ -1,4 +1,4 @@
-def make_diff(data1: dict, data2: dict) -> list:
+def make_diff(data1: dict, data2: dict) -> list[dict]:
     diff = []
     all_keys = set(data1.keys()) | set(data2.keys())
     nested_keys = set(
@@ -16,6 +16,14 @@ def make_diff(data1: dict, data2: dict) -> list:
         elif value1 != value2:
             operation = 'changed' if key in data1 and key in data2 \
                 else 'add' if key in data2 else 'removed'
+
+            # if key in data1 and key in data2:
+            #     operation = 'changed'
+            # elif key in data2:
+            #     operation = 'add'
+            # else:
+            #     operation = 'removed'
+
             diff.append({
                 'key': key, 'operation': operation, 'old': value1, 'new': value2
             })

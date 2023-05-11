@@ -24,7 +24,7 @@ def line_forming(dictionary: dict, key, level: int, sign: str) -> str:
            f'{to_str(dictionary[key], level + DEFAULT_INDENT)}'
 
 
-def build_stylish_iter(diff: dict, level=0) -> str:
+def to_stylish(diff: dict, level=0) -> str:
     OPERATIONS = {
         'same': lambda x, y: line_forming(x, 'value', y, sign='    '),
         'add': lambda x, y: line_forming(x, 'new', y, sign='  + '),
@@ -35,7 +35,7 @@ def build_stylish_iter(diff: dict, level=0) -> str:
         ]),
         'nested': lambda x, y: (
             f'{" " * y}    {x["key"]}: '
-            f'{build_stylish_iter(x["value"], y + DEFAULT_INDENT)}'
+            f'{to_stylish(x["value"], y + DEFAULT_INDENT)}'
         )
     }
 
@@ -48,7 +48,3 @@ def build_stylish_iter(diff: dict, level=0) -> str:
 
     result.append(f'{" " * level}}}')
     return '\n'.join(result)
-
-
-def to_stylish(diff: dict) -> str:
-    return build_stylish_iter(diff)

@@ -1,13 +1,12 @@
-import os
 import pytest
 from gendiff.date_prepare import prepare_data
-
+from tests import get_fixture_path
 
 def test_date_prepare():
-    filepath1 = os.path.join(os.path.dirname(__file__), 'fixtures', 'file1.json')
-    filepath2 = os.path.join(os.path.dirname(__file__), 'fixtures', 'file1.yml')
-    filepath3 = os.path.join(os.path.dirname(__file__), 'fixtures', 'expected_output_plain.txt')
-
+    filepath1 = get_fixture_path('file1.json')
+    filepath2 = get_fixture_path('file1.yml')
+    filepath3 = get_fixture_path('expected_output_plain.txt') # просто беру путь
+    
     with open(filepath1) as f:
         data1 = f.read()
 

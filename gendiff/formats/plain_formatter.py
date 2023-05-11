@@ -11,7 +11,7 @@ def to_str(value):
         return f"'{value}'"
 
 
-def build_plain_iter(diff: dict, path="") -> str:
+def to_plain(diff: dict, path="") -> str:
     result = []
 
     OPERATIONS = {
@@ -19,7 +19,7 @@ def build_plain_iter(diff: dict, path="") -> str:
                              f"was added with value: "
                              f"{to_str(dict['new'])}"),
         'removed': lambda dict: (f"Property '{path}{dict['key']}' was removed"),
-        'nested': lambda dict: build_plain_iter(
+        'nested': lambda dict: to_plain(
             dict['value'], f"{path}{dict['key']}."),
         'changed': lambda dict: (f"Property '{path}{dict['key']}' was updated. "
                                  f"From {to_str(dict['old'])} to "
@@ -31,7 +31,3 @@ def build_plain_iter(diff: dict, path="") -> str:
         if operation in OPERATIONS:
             result.append(OPERATIONS[operation](dictionary))
     return '\n'.join(result)
-
-
-def to_plain(diff: dict) -> str:
-    return build_plain_iter(diff)

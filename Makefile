@@ -4,13 +4,13 @@
 install:
 	poetry install
 
-gen-diff:
+gendiff-stylish:
 	poetry run gendiff /home/larriva/python-project-50/tests/fixtures/file12.yml /home/larriva/python-project-50/tests/fixtures/file22.yml -f stylish
 
-gen-diff-json:
+gendiff-json:
 	poetry run gendiff /home/larriva/python-project-50/tests/fixtures/file12.yml /home/larriva/python-project-50/tests/fixtures/file22.yml -f json
 
-gen-diff-plain:
+gendiff-plain:
 	poetry run gendiff /home/larriva/python-project-50/tests/fixtures/file12.yml /home/larriva/python-project-50/tests/fixtures/file22.yml -f plain
 
 build:
