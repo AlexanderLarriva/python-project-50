@@ -3,15 +3,15 @@ DEFAULT_INDENT = 4
 
 def to_str(value, level: int) -> str:
     if isinstance(value, dict):
-        lines = ['{']
+        result = ['{']
         for key, nested_value in value.items():
             if isinstance(nested_value, dict):
                 new_value = to_str(nested_value, level + DEFAULT_INDENT)
-                lines.append(f"{' ' * level}    {key}: {new_value}")
+                result.append(f"{' ' * level}    {key}: {new_value}")
             else:
-                lines.append(f"{' ' * level}    {key}: {nested_value}")
-        lines.append(f'{" " * level}}}')
-        return '\n'.join(lines)
+                result.append(f"{' ' * level}    {key}: {nested_value}")
+        result.append(f'{" " * level}}}')
+        return '\n'.join(result)
     if isinstance(value, bool):
         return str(value).lower()
     if value is None:
@@ -59,7 +59,6 @@ def to_stylish(diff: dict, level=0) -> str:
     result = ['{']
     for dictionary in diff:
         operation = dictionary['operation']
-
         process_operation(operation, dictionary, level, result)
 
     result.append(f'{" " * level}}}')
