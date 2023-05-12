@@ -24,27 +24,43 @@ def line_forming(dictionary: dict, key, level: int, sign: str) -> str:
            f'{to_str(dictionary[key], level + DEFAULT_INDENT)}'
 
 
-def to_stylish(diff: dict, level=0) -> str:
-    OPERATIONS = {
-        'same': lambda x, y: line_forming(x, 'value', y, sign='    '),
-        'add': lambda x, y: line_forming(x, 'new', y, sign='  + '),
-        'removed': lambda x, y: line_forming(x, 'old', y, sign='  - '),
-        'changed': lambda x, y: '\n'.join([
-            line_forming(x, 'old', y, sign='  - '),
-            line_forming(x, 'new', y, sign='  + ')
-        ]),
-        'nested': lambda x, y: (
-            f'{" " * y}    {x["key"]}: '
-            f'{to_stylish(x["value"], y + DEFAULT_INDENT)}'
-        )
-    }
+def process_operation(operation, dictionary, level, result):
+    if operation == 'same':
+        result.append(line_forming(
+            dictionary, 'value',
+            level, sign='    '
+        ))
 
+    if operation == 'add':
+        result.append(line_forming(
+            dictionary, 'new',
+            level, sign='  + '
+        ))
+
+    if operation == 'removed' or operation == 'changed':
+        result.append(line_forming(
+            dictionary, 'old',
+            level, sign='  - '
+        ))
+
+    if operation == 'changed':
+        result.append(
+            line_forming(
+                dictionary, 'new',
+                level, sign='  + '
+            ))
+
+    if operation == 'nested':
+        new_value = to_stylish(dictionary['value'], level + DEFAULT_INDENT)
+        result.append(f'{" " * level}    {dictionary["key"]}: {new_value}')
+
+
+def to_stylish(diff: dict, level=0) -> str:
     result = ['{']
     for dictionary in diff:
         operation = dictionary['operation']
 
-        if operation in OPERATIONS:
-            result.append(OPERATIONS[operation](dictionary, level))
+        process_operation(operation, dictionary, level, result)
 
     result.append(f'{" " * level}}}')
     return '\n'.join(result)
