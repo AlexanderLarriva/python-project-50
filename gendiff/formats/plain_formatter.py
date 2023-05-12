@@ -1,14 +1,14 @@
 def to_str(value):
-    if isinstance(value, dict):
-        return "[complex value]"
-    if isinstance(value, bool):
-        return str(value).lower()
-    if value is None:
-        return "null"
-    if isinstance(value, int):
-        return value
-    else:
-        return f"'{value}'"
+    value_check = {
+        dict: "[complex value]",
+        bool: str(value).lower(),
+        type(None): "null",
+        int: str(value)
+    }
+    for key in value_check:
+        if isinstance(value, key):
+            return value_check[key]
+    return f"'{value}'"
 
 
 def to_plain(diff: dict, path="") -> str:
