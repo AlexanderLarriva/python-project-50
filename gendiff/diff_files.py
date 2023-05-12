@@ -1,3 +1,13 @@
+def get_operation(data1, data2, key):
+    if key in data1 and key in data2:
+        operation = 'changed'
+    elif key in data2:
+        operation = 'add'
+    else:
+        operation = 'removed'
+    return operation
+
+
 def make_diff(data1: dict, data2: dict) -> list[dict]:
     diff = []
     all_keys = set(data1.keys()) | set(data2.keys())
@@ -11,24 +21,21 @@ def make_diff(data1: dict, data2: dict) -> list[dict]:
             child_diff = make_diff(value1, value2)
             if child_diff:
                 diff.append({
-                    'key': key, 'operation': 'nested', 'value': child_diff
+                    'key': key,
+                    'operation': 'nested',
+                    'value': child_diff
                 })
         elif value1 != value2:
-            operation = 'changed' if key in data1 and key in data2 \
-                else 'add' if key in data2 else 'removed'
-
-            # if key in data1 and key in data2:
-            #     operation = 'changed'
-            # elif key in data2:
-            #     operation = 'add'
-            # else:
-            #     operation = 'removed'
-
             diff.append({
-                'key': key, 'operation': operation, 'old': value1, 'new': value2
+                'key': key,
+                'operation': get_operation(data1, data2, key),
+                'old': value1,
+                'new': value2
             })
         else:
             diff.append({
-                'key': key, 'operation': 'same', 'value': value1
+                'key': key,
+                'operation': 'same',
+                'value': value1
             })
     return diff

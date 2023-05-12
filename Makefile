@@ -23,7 +23,7 @@ package-install:
 	python3 -m pip install --user dist/*.whl
 
 check:
-	poetry run flake8 gendiff
+	poetry run flake8 .
 	poetry run pytest
 
 test-coverage:
