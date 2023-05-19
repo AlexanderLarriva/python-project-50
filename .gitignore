@@ -22,6 +22,7 @@ wget-log
 #ignore coverage report
 htmlcov
 coverage.xml
+.coverage
 
 # *.egg-info
 # __pycache__
