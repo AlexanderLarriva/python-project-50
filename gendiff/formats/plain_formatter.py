@@ -1,4 +1,4 @@
-def to_str(value):
+def lead_to_str(value):
     value_check = {
         dict: "[complex value]",
         bool: str(value).lower(),
@@ -17,13 +17,13 @@ def convert_to_plain(diff: dict, path="") -> str:
     OPERATIONS = {
         'add': lambda dict: (f"Property '{path}{dict['key']}' "
                              f"was added with value: "
-                             f"{to_str(dict['new'])}"),
+                             f"{lead_to_str(dict['new'])}"),
         'removed': lambda dict: (f"Property '{path}{dict['key']}' was removed"),
         'nested': lambda dict: convert_to_plain(
             dict['value'], f"{path}{dict['key']}."),
         'changed': lambda dict: (f"Property '{path}{dict['key']}' was updated. "
-                                 f"From {to_str(dict['old'])} to "
-                                 f"{to_str(dict['new'])}")
+                                 f"From {lead_to_str(dict['old'])} to "
+                                 f"{lead_to_str(dict['new'])}")
     }
 
     for dictionary in diff:

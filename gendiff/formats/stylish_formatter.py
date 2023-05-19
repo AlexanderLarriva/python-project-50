@@ -1,12 +1,12 @@
 DEFAULT_INDENT = 4
 
 
-def to_str(value, level: int) -> str:
+def lead_to_str(value, level: int) -> str:
     if isinstance(value, dict):
         result = ['{']
         for key, nested_value in value.items():
             if isinstance(nested_value, dict):
-                new_value = to_str(nested_value, level + DEFAULT_INDENT)
+                new_value = lead_to_str(nested_value, level + DEFAULT_INDENT)
                 result.append(f"{' ' * level}    {key}: {new_value}")
             else:
                 result.append(f"{' ' * level}    {key}: {nested_value}")
@@ -22,7 +22,7 @@ def to_str(value, level: int) -> str:
 def form_string(dictionary: dict, key,
                 level: int, prefix_sign: str) -> str:
     return f'{" " * level}{prefix_sign}{dictionary["key"]}: ' \
-           f'{to_str(dictionary[key], level + DEFAULT_INDENT)}'
+           f'{lead_to_str(dictionary[key], level + DEFAULT_INDENT)}'
 
 
 def process_operation(operation: str, dictionary: dict,
