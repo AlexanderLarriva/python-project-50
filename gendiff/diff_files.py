@@ -8,7 +8,7 @@ def get_operation(data1, data2, key):
     return operation
 
 
-def make_diff(data1: dict, data2: dict) -> list[dict]:
+def compare_dicts(data1: dict, data2: dict) -> list[dict]:
     diff = []
     all_keys = set(data1.keys()) | set(data2.keys())
     nested_keys = set(
@@ -18,7 +18,7 @@ def make_diff(data1: dict, data2: dict) -> list[dict]:
         value1 = data1.get(key)
         value2 = data2.get(key)
         if key in nested_keys:
-            child_diff = make_diff(value1, value2)
+            child_diff = compare_dicts(value1, value2)
             if child_diff:
                 diff.append({
                     'key': key,

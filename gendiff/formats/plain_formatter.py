@@ -11,7 +11,7 @@ def to_str(value):
     return f"'{value}'"
 
 
-def to_plain(diff: dict, path="") -> str:
+def convert_to_plain(diff: dict, path="") -> str:
     result = []
 
     OPERATIONS = {
@@ -19,7 +19,7 @@ def to_plain(diff: dict, path="") -> str:
                              f"was added with value: "
                              f"{to_str(dict['new'])}"),
         'removed': lambda dict: (f"Property '{path}{dict['key']}' was removed"),
-        'nested': lambda dict: to_plain(
+        'nested': lambda dict: convert_to_plain(
             dict['value'], f"{path}{dict['key']}."),
         'changed': lambda dict: (f"Property '{path}{dict['key']}' was updated. "
                                  f"From {to_str(dict['old'])} to "

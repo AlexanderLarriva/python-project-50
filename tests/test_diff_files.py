@@ -1,4 +1,4 @@
-from gendiff.diff_files import make_diff
+from gendiff.diff_files import compare_dicts
 from gendiff.parser import parse_file
 from gendiff.date_prepare import prepare_data
 from tests import get_fixture_path
@@ -15,4 +15,4 @@ def test_generate_diff():
     with open(get_fixture_path('expected_output.txt'), 'r') as diff:
         expected_output = diff.read().strip()
 
-    assert str(make_diff(dict1, dict2)) == expected_output
+    assert str(compare_dicts(dict1, dict2)) == expected_output

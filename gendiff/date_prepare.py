@@ -3,10 +3,18 @@ from os.path import splitext
 FILE_EXTENSION = ('yaml', 'yml', 'json')
 
 
+def read_file(filepath: str):
+    try:
+        with open(filepath) as f:
+            return f.read()
+    except IOError as e:
+        raise IOError(f"Error reading file: {e}")
+
+
 def prepare_data(filepath: str):
     extension = splitext(filepath)[1][1:]
     if extension in FILE_EXTENSION:
-        with open(filepath) as f:
-            data = f.read()
-            return data, extension
-    raise ValueError(f"Unrecognized extension: {extension}")
+        data = read_file(filepath)
+        return data, extension
+    else:
+        raise ValueError(f"Unrecognized extension: {extension}")
