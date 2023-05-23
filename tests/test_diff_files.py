@@ -1,6 +1,6 @@
 from gendiff.diff_files import compare_dicts
 from gendiff.parser import parse_file
-from gendiff.date_prepare import prepare_data
+from gendiff.files import prepare_data
 from tests import get_fixture_path
 
 

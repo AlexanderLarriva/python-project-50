@@ -4,11 +4,8 @@ FILE_EXTENSION = ('yaml', 'yml', 'json')
 
 
 def read_file(filepath: str):
-    try:
-        with open(filepath) as f:
-            return f.read()
-    except IOError as e:
-        raise IOError(f"Error reading file: {e}")
+    with open(filepath) as f:
+        return f.read()
 
 
 def prepare_data(filepath: str):

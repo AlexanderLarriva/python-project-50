@@ -1,4 +1,4 @@
-from .date_prepare import prepare_data
+from .files import prepare_data
 from .parser import parse_file
 from .diff_files import compare_dicts
 from .formats import get_formatter

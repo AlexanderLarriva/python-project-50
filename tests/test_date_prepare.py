@@ -1,5 +1,5 @@
 import pytest
-from gendiff.date_prepare import prepare_data
+from gendiff.files import prepare_data
 from tests import get_fixture_path
 
 
